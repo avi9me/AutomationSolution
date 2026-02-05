@@ -1,0 +1,28 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+    commands:
+      # Install Newman for API tests
+      npm install -g newman
+      # Go to UI tests folder
+      cd UiTests
+      # Install Playwright dependencies
+      npm install
+      npx playwright install
+  build:
+    commands:
+      # Run Postman API tests
+      cd ..
+      newman run ApiTests/collections/api-tests.postman_collection.json -e ApiTests/environments/test.postman_environment.json
+  post_build:
+    commands:
+      # Run Playwright UI tests
+      cd UiTests
+      npx playwright test
+artifacts:
+  files:
+    - UiTests/playwright-report/**
+    - ApiTests/**/newman/*
