@@ -1,2 +1,4 @@
 node_modules/
-playwright-report/
+UiTests/node_modules/
+UiTests/playwright-report/
+UiTests/test-results/
