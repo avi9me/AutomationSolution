@@ -12,13 +12,11 @@ phases:
       - cd ..
   build:
     commands:
-      - |
-        echo "Running API tests..."
-        newman run ApiTests/collections/api-tests.postman_collection.json -e ApiTests/environments/test.postman_environment.json
-      - |
-        echo "API tests passed, running UI tests..."
-        cd UiTests
-        npx playwright test
+        - echo "Running API tests..."
+        - newman run ApiTests/collections/api-tests.postman_collection.json -e ApiTests/environments/test.postman_environment.json
+        - echo "API tests passed, running UI tests..."
+        - cd UiTests
+        - npx playwright test
 
 artifacts:
   files:
