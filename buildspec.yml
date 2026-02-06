@@ -12,7 +12,7 @@ phases:
       - cd ..
   build:
     commands:
-      - newman run ApiTests/collections/api-tests.postman_collection.json -e ApiTests/environments/test.postman_environment.json
+      - newman run ApiTests/collections/api-tests.postman_collection.json -e ApiTests/environments/test.postman_environment.json || exit 1
   post_build:
     commands:
       - cd UiTests
