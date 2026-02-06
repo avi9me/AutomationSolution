@@ -13,7 +13,7 @@ phases:
   build:
     commands:
       - set -e
-      - newman run ApiTests/collections/api-tests.postman_collection.json -e ApiTests/environments/test.postman_environment.json || exit 1
+      - newman run ApiTests/collections/api-tests.postman_collection.json -e ApiTests/environments/test.postman_environment.json
   post_build:
     commands:
       - set -e
