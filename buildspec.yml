@@ -12,8 +12,8 @@ phases:
   build:
     commands:
        curl -v https://jsonplaceholder.typicode.com/posts/1
-      - cd ..
-      - newman run ApiTests/collections/api-tests.postman_collection.json -e ApiTests/environments/test.postman_environment.json
+       cd ..
+       newman run ApiTests/collections/api-tests.postman_collection.json -e ApiTests/environments/test.postman_environment.json
   post_build:
     commands:
       - cd UiTests
