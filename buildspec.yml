@@ -16,6 +16,7 @@ phases:
       - newman run ApiTests/collections/api-tests.postman_collection.json -e ApiTests/environments/test.postman_environment.json || exit 1
   post_build:
     commands:
+      - set -e
       - cd UiTests
       - npx playwright test
 
