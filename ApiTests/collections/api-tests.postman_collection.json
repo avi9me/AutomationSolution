@@ -21,6 +21,23 @@
               "",
               "pm.test(\"Response has id\", function () {",
               "    var jsonData = pm.response.json();",
+              "    var postId = parseInt(pm.environment.get(\"postId\"));",
+              "    pm.expect(jsonData.id).to.eql(postId);",
+              "});",
+              "",
+              "",
+              "pm.test(\"Response time is under 500ms\", () => {",
+              "    pm.expect(pm.response.responseTime).to.be.below(500);",
+              "});",
+              "",
+              "pm.test(\"Response schema is valid\", () => {",
+              "    const jsonData = pm.response.json();",
+              "",
+              "    pm.expect(jsonData).to.have.property(\"id\");",
+              "    pm.expect(jsonData).to.have.property(\"userId\");",
+              "    pm.expect(jsonData).to.have.property(\"title\");",
+              "    pm.expect(jsonData).to.have.property(\"body\");",
+              "",
               "    pm.expect(jsonData.id).to.eql(1);",
               "});",
               ""
@@ -33,14 +50,27 @@
         {
           "listen": "prerequest",
           "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
             "packages": {},
-            "type": "text/javascript"
+            "requests": {}
           }
         }
       ],
       "request": {
         "method": "GET",
         "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
         "url": {
           "raw": "https://jsonplaceholder.typicode.com/posts/{{postId}}",
           "protocol": "https",
