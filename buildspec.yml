@@ -12,8 +12,7 @@ phases:
       - cd ..
   build:
     commands:
-        - newman run ApiTests/collections/api-tests.postman_collection.json -e ApiTests/environments/test.postman_environment.json -r cli,html 
-  --reporter-html-export ApiTests/newman-report/report.html && cd UiTests && npx playwright test
+        - newman run ApiTests/collections/api-tests.postman_collection.json -e ApiTests/environments/test.postman_environment.json -r cli,html --reporter-html-export ApiTests/newman-report/report.html && cd UiTests && npx playwright test
 
 artifacts:
   files:
