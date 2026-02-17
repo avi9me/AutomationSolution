@@ -6,9 +6,10 @@ phases:
       nodejs: 18
     commands:
       - npm install -g newman
+      - npm install -g newman-reporter-html
       - cd UiTests
       - npm install
-      - npx playwright install
+      - npx playwright install --with-deps
       - cd ..
   build:
     commands:
