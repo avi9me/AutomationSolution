@@ -9,7 +9,7 @@ phases:
       - npm install -g newman-reporter-html
       - cd UiTests
       - npm install
-      - npx playwright install --with-deps
+      - npx playwright install
       - cd ..
   build:
     commands:
